@@ -1,0 +1,23 @@
+<div class="panel panel-default row" ng-hide="error" ng-controller="productListController">
+		<div class="col-xs-3">
+		<div style="background-color: #000066; color: white"
+		class="navbar navbar-inverse"><label style="color:white" class="navbar-brand">Choose A Category</label></div>
+			<a
+				ng-repeat="item in productDataset | category:'category' "
+				ng-click="selectCategory(item)"
+				class=" btn btn-block btn-default btn-lg"> {{item}} </a>
+		</div>
+		<div class="col-xs-5">
+			<div class="well" style="background-color: black; color: white"
+				ng-repeat="product in productDataset|filter:filterCategory">
+				<h4>
+					<strong>{{product.name}}</strong>
+				</h4>
+				<span style="background-color: #E80000; height: 20px"
+					class="pull-right label label-primary">{{product.price|currency}}</span>
+						<span class="lead">{{product.description}}</span>
+						<button class="btn btn-success pull-right" ng-click="addToCart(product)">Add To Cart</button>
+			
+			</div>
+		</div>
+	</div>
