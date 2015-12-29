@@ -1,11 +1,10 @@
-var cartModule = angular.module("cartService", []);
-cartModule.factory("cart", function() {
+var cartModule = angular.module("cart", []);
+cartModule.factory("cartService", function() {
 	var cartData = [];
 
 	return {
 
 		addProduct : function(product) {
-			
 			
 		},
 

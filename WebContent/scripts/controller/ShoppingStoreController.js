@@ -1,5 +1,5 @@
 var app=angular.module("store",['ngRoute','customFilter',"cart"]);
-app.controller("storeController",function ($scope,$rootScope,$http,cart,$location){
+app.controller("storeController",function ($scope,$rootScope,$http,cartService,$location){
 	
 	$rootScope.$on("$routeChangeError",function (event, current, previous, rejection){
 		console.log("Failed to change routes");
@@ -7,11 +7,11 @@ app.controller("storeController",function ($scope,$rootScope,$http,cart,$locatio
 	})
 	$scope.sendOrder=function (shippingDetails){
 		var order=angular.copy(shippingDetails);
-		order.products=cart.getProducts();
+		order.products=cartService.getProducts();
 		$http.post("http://localhost:8080/ShoppingStoreApplication/Admin/AdminView/AdminMain.html", order)
 		.success(function (data) {
 		$scope.data.orderId = data.id;
-		cart.getProducts().length = 0;
+		cartService.getProducts().length = 0;
 		})
 		.error(function (error) {
 		$scope.data.orderError = error;
