@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+<meta charset="ISO-8859-1">
+<title>Online Shopping Store</title>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.8/angular-route.js"></script>
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="scripts/components/cart/service/CartService.js"></script>
+<script type="text/javascript" src="scripts/filter/CategoryFilter.js"></script>
+<script type="text/javascript" src="scripts/app.js"></script>
+<script type="text/javascript" src="scripts/controller/ShoppingStoreController.js"></script>
+
+
+
+
+<script type="text/javascript" src="scripts/ConfigService.js"></script>
+<script type="text/javascript" src="scripts/model/ProductModel.js"></script>
+<script type="text/javascript" src="scripts/model/CartModel.js"></script>
+<script type="text/javascript" src="scripts/model/UserModel.js"></script>
+<script type="text/javascript" src="scripts/model/CategoryModel.js"></script>
+
+
+
+<script type="text/javascript" src="scripts/components/products/controller/ProductListController.js"></script>
+
+<script type="text/javascript" src="scripts/components/cart/directives/CartSummaryDirective.js"></script>
+<script type="text/javascript" src="scripts/components/cart/controller/CheckOutController.js"></script>
+<script type="text/javascript" src="scripts/routes/Routes.js"></script>
+</head>
+<body>
+	<div style="background-color:black; color: white"
+		class="navbar navbar-inverse">
+		<label style="color:white" class="navbar-brand" >Online Shopping Store</label>
+		
+		<cart-summary />
+	</div>
+	<ng-view></ng-view>
+	<div class="alert alert-danger" ng-show="error">Cannot Get tHe product List (Error :{{data.error.status}}) Server id down Please try again later Thank You <a href="http://localhost:8080/ShoppingStoreApplication/views/Homepage.html">Click here</a></div>
+	
+</body>
+</html>
