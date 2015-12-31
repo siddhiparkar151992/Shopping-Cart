@@ -1,6 +1,7 @@
 package com.client.shoppingcart.businessobjects;
 
 public class Product {
+	private  String id;
 	private String name;
 	private String description;
 	private double price;
@@ -33,7 +34,7 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	private  String id;
+	
 	/**
 	 * @return the name
 	 */

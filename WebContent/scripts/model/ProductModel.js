@@ -1,4 +1,4 @@
-app.service("ProductModel",function($http,ConfigService){
+app.service("ProductModel",function($http,ConfigService,$q){
 	var baseUrl = "Products";
 	this.getAll = function(){
 		return $http.get(ConfigService.getUrl(baseUrl)).then(function(res){

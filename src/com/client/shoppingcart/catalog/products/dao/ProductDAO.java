@@ -16,7 +16,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 
-public interface ProductDAO extends EntityDao{
+public interface ProductDAO extends EntityDao<Product>{
 
 	List<Product> getById();
 

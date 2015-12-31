@@ -1,4 +1,4 @@
-cartModule.directive("cartSummary", function(cart) {
+cartModule.directive("cartSummary", function(cartService) {
 
 	return {
 		restrict : 'E',
@@ -7,7 +7,7 @@ cartModule.directive("cartSummary", function(cart) {
 		},
 		templateUrl : 'scripts/components/cart/templates/CartSummary.html',
 		controller : function($scope) {
-			var cartData = cart.getProducts();
+			var cartData = cartService.getProducts();
 			$scope.total = function() {
 				var total = 0;
 				for (var i = 0; i < cartData.length; i++) {

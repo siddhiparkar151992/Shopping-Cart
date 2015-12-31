@@ -7,20 +7,52 @@ import com.client.shoppingcart.businessobjects.Product;
 
 public class CartItem extends EntityManagerImpl{
 	private Long id;
+	private Long shoppingCartId;
+	private int quantity;
 	private Long productId;
 	private BigDecimal itemPrice;
 	private BigDecimal subTotal;
 	private Product product;
-	private ShoppingCart cart;
-	public CartItem(Product product, ShoppingCart cart) {
+	
+	public CartItem(Long id, Long shoppingCartId, int quantity, Long productId,
+			BigDecimal itemPrice) {
 		super();
-		this.product = product;
-		this.cart = cart;
+		this.id = id;
+		this.shoppingCartId = shoppingCartId;
+		this.quantity = quantity;
+		this.productId = productId;
+		this.itemPrice = itemPrice;
 	}
+	public Long getShoppingCartId() {
+		return shoppingCartId;
+	}
+	public void setShoppingCartId(Long shoppingCartId) {
+		this.shoppingCartId = shoppingCartId;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public CartItem(Long id, Long shoppingCartId, int quantity, Long productId,
+			BigDecimal itemPrice, BigDecimal subTotal, Product product,
+			ShoppingCart cart) {
+		super();
+		this.id = id;
+		this.shoppingCartId = shoppingCartId;
+		this.quantity = quantity;
+		this.productId = productId;
+		this.itemPrice = itemPrice;
+		this.subTotal = subTotal;
+		this.product = product;
+	}
+	
 	public CartItem(Product product) {
 		super();
 		this.product = product;
 	}
+
 	/**
 	 * @return the id
 	 */
@@ -81,18 +113,7 @@ public class CartItem extends EntityManagerImpl{
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	/**
-	 * @return the cart
-	 */
-	public ShoppingCart getCart() {
-		return cart;
-	}
-	/**
-	 * @param cart the cart to set
-	 */
-	public void setCart(ShoppingCart cart) {
-		this.cart = cart;
-	}
+	
 	@Override
 	public Object getEntity(Class className, Object id) {
 		// TODO Auto-generated method stub

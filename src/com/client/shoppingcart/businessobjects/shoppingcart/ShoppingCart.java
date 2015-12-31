@@ -1,10 +1,36 @@
 package com.client.shoppingcart.businessobjects.shoppingcart;
 
+import java.util.Set;
+
 import com.client.shoppingcart.Entity.EntityManagerImpl;
 
 public class ShoppingCart extends EntityManagerImpl {
 	private int cartId;
 	private int customerID;
+	private Set<CartItem> CartItems;
+	public ShoppingCart(int cartId, int customerID, Set<CartItem> cartItems) {
+		super();
+		this.cartId = cartId;
+		this.customerID = customerID;
+		CartItems = cartItems;
+	}
+
+	public int getCartId() {
+		return cartId;
+	}
+
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}
+
+	public Set<CartItem> getCartItems() {
+		return CartItems;
+	}
+
+	public void setCartItems(Set<CartItem> cartItems) {
+		CartItems = cartItems;
+	}
+
 	public int getcartId() {
 		return cartId;
 	}

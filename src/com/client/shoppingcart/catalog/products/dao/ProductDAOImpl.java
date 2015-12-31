@@ -14,46 +14,7 @@ import com.mongodb.client.MongoCursor;
 public class ProductDAOImpl implements ProductDAO{
 	static MongoCollection<Document> productCollection = DatabaseConnection.getConnection().getCollection("products");
 	
-	@Override
-	public Object getEntity(Class className, Object id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public Object getEntityById(Object id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public void save(Object entity) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void update(Object entity) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void delete(Object entity) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public List<Product> getById() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public List<Product> getByProduct(Product product) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	@Override
 	public List<Product> getAllProducts() {
 		ArrayList<Product> products = new ArrayList<Product>();
@@ -67,6 +28,62 @@ public class ProductDAOImpl implements ProductDAO{
 		}
 		return products;
 		
+	}
+
+
+	@Override
+	public Product getEntity(Class<? extends Product> className, Product id) {
+		MongoCursor<Document> cursor= productCollection.find().iterator();
+		return null;
+	}
+
+
+	@Override
+	public Product getEntityById(Product id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void save(Product entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void update(Product entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void delete(Product entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public List<Product> getById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Product> getByProduct(Product product) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
