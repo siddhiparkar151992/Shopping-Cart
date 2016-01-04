@@ -17,6 +17,10 @@ public class User {
 		this.id = id;
 		this.address = address;
 	}
+	public User(int id) {
+		super();
+		this.id = id;
+	}
 	/**
 	 * @return the name
 	 */

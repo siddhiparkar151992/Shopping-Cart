@@ -7,22 +7,25 @@ cartModule.directive("cartSummary", function(cartService) {
 		},
 		templateUrl : 'scripts/components/cart/templates/CartSummary.html',
 		controller : function($scope) {
-			var cartData = cartService.getProducts();
-			$scope.total = function() {
+			var total = function() {
 				var total = 0;
-				for (var i = 0; i < cartData.length; i++) {
-					total += cartData[i].count * cartData[i].price;
+				for (var i = 0; i < $scope.cartData.cartItems.length; i++) {
+					total += $scope.cartData.cartItems[i].quantity * $scope.cartData.cartItems[i].itemPrice;
 				}
 				return total;
 			}
-
-			$scope.count = function() {
-				var count = 0;
-				for (var i = 0; i < cartData.length; i++) {
-					count += cartData[i].count;
-				}
-				return count;
+			
+			var init = function(){
+				var cartDefer = cartService.getAllItems().then(function(res){
+					$scope.cartData = cartService.cartData =res.data;
+					$scope.total =total();
+				});
 			}
+			init();
+			$scope.$on("refreshCart",function(){
+				init();
+			})
+			
 
 		}
 

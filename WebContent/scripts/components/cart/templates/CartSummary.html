@@ -10,7 +10,7 @@
 </style>
 <div class="navbar-right">
 	<div class="navbar-text">
-		<b>Your cart:</b> {{count()}} item(s), {{total() | currency}}
+		<b>Your cart:</b> {{cartData.cartItems.length}} item(s), {{total| currency}}
 	</div>
 	<a href="#checkout" class="btn btn-default navbar-btn">Checkout</a>
 </div>

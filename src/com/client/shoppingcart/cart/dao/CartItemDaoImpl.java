@@ -1,32 +1,44 @@
 package com.client.shoppingcart.cart.dao;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Random;
+
 import org.bson.Document;
 
+import com.client.shoppingcart.businessobjects.Product;
 import com.client.shoppingcart.businessobjects.shoppingcart.CartItem;
 import com.client.shoppingcart.businessobjects.shoppingcart.ShoppingCart;
 import com.client.shoppingcart.databaseconnection.DatabaseConnection;
 import com.mongodb.client.MongoCollection;
 
-public class CartItemDaoImpl implements CartItemDAO{
-	static MongoCollection<Document> cartItemCollection = DatabaseConnection.getConnection().getCollection("shoppingCartItem");
-	private ShoppingCart cart;
+public  class CartItemDaoImpl implements CartItemDAO{
 	
+	
+
 	@Override
-	public CartItem getEntity(Class<? extends CartItem> className, CartItem id) {
+	public CartItem prepareCartitem(CartItem cartItem) {
+		Random randomno = new Random();
+		cartItem.setId(randomno.nextLong());
+		cartItem.setSubTotal(cartItem.getItemPrice()*cartItem.getQuantity());
+		return cartItem;
+	}
+
+	@Override
+	public CartItem getEntity(CartItem id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public CartItem getEntityById(CartItem id) {
+	public CartItem getEntityById(Object id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void save(CartItem cartItem) {
-		Document cartItemDoc=new Document().append("", value)
-		cartItemCollection.insertOne(arg0);
+	public void save(CartItem entity) {
+		// TODO Auto-generated method stub
 		
 	}
 

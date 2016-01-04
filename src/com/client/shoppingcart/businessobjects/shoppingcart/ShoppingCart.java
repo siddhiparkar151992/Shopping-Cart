@@ -5,21 +5,25 @@ import java.util.Set;
 import com.client.shoppingcart.Entity.EntityManagerImpl;
 
 public class ShoppingCart extends EntityManagerImpl {
-	private int cartId;
+	private String cartId;
 	private int customerID;
 	private Set<CartItem> CartItems;
-	public ShoppingCart(int cartId, int customerID, Set<CartItem> cartItems) {
+	public ShoppingCart(String cartId, int customerID, Set<CartItem> cartItems) {
 		super();
 		this.cartId = cartId;
 		this.customerID = customerID;
 		CartItems = cartItems;
 	}
 
-	public int getCartId() {
+	public ShoppingCart() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getCartId() {
 		return cartId;
 	}
 
-	public void setCartId(int cartId) {
+	public void setCartId(String cartId) {
 		this.cartId = cartId;
 	}
 
@@ -31,11 +35,11 @@ public class ShoppingCart extends EntityManagerImpl {
 		CartItems = cartItems;
 	}
 
-	public int getcartId() {
+	public String getcartId() {
 		return cartId;
 	}
 
-	public void setcartId(int cartId) {
+	public void setcartId(String cartId) {
 		this.cartId = cartId;
 	}
 
@@ -48,7 +52,7 @@ public class ShoppingCart extends EntityManagerImpl {
 	}
 
 	@Override
-	public Object getEntity(Class className, Object id) {
+	public Object getEntity(Object id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -32,14 +32,14 @@ public class ProductDAOImpl implements ProductDAO{
 
 
 	@Override
-	public Product getEntity(Class<? extends Product> className, Product id) {
+	public Product getEntity(Product id) {
 		MongoCursor<Document> cursor= productCollection.find().iterator();
 		return null;
 	}
 
 
 	@Override
-	public Product getEntityById(Product id) {
+	public Product getEntityById(Object id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

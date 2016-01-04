@@ -12,11 +12,7 @@ public class OrderServiceImpl implements OrderService<Order>{
 		return null;
 	}
 
-	@Override
-	public Order getEntityById(Order id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public void save(Order entity) {
@@ -50,6 +46,12 @@ public class OrderServiceImpl implements OrderService<Order>{
 
 	@Override
 	public Order calculateShoppingCartTotal(ShoppingCart cart) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Order getEntityById(Object id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

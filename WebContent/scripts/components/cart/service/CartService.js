@@ -1,25 +1,28 @@
 var cartModule = angular.module("cart", []);
-cartModule.factory("cartService", function() {
+cartModule.factory("cartService", function(CartModel,CartItemModel) {
 	var cartData = [];
-
+	userId=345;
 	return {
 
-		addProduct : function(product, cart,quantity) {
+		addProduct : function(product) {
 			var cartItem = {
-					"shoppingCartId":cart.cartId,
-					"quantity":quantity,
-					"productId":itemPrice.productId,
-					"itemPrice":itemPrice.price,
-					
-					
-			}
+					"shoppingCartId":this.cartData.cartId,
+					"quantity":1,
+					"productId":product.id,
+					"itemPrice":product.price,
+					"product":product
+					}
+		return CartModel.add(cartItem);
 		},
 
 		removeProduct : function(id) {
 			
 		},
-		getProducts : function() {
-			return cartData;
+		getProduct : function(id) {
+			return CartModel.getById(id);
+		},
+		getAllItems:function(){
+			return CartItemModel.getAll({"userId":345});
 		}
 
 	}

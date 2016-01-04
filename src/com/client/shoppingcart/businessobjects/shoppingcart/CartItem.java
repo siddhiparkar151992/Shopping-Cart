@@ -1,21 +1,21 @@
 package com.client.shoppingcart.businessobjects.shoppingcart;
 
-import java.math.BigDecimal;
+
 
 import com.client.shoppingcart.Entity.EntityManagerImpl;
 import com.client.shoppingcart.businessobjects.Product;
 
 public class CartItem extends EntityManagerImpl{
 	private Long id;
-	private Long shoppingCartId;
+	private String shoppingCartId;
 	private int quantity;
-	private Long productId;
-	private BigDecimal itemPrice;
-	private BigDecimal subTotal;
+	private String productId;
+	private Double itemPrice;
+	private Double subTotal;
 	private Product product;
 	
-	public CartItem(Long id, Long shoppingCartId, int quantity, Long productId,
-			BigDecimal itemPrice) {
+	public CartItem(Long id, String shoppingCartId, int quantity, String productId,
+			double itemPrice) {
 		super();
 		this.id = id;
 		this.shoppingCartId = shoppingCartId;
@@ -23,10 +23,20 @@ public class CartItem extends EntityManagerImpl{
 		this.productId = productId;
 		this.itemPrice = itemPrice;
 	}
-	public Long getShoppingCartId() {
+	public CartItem(Long id, String shoppingCartId, int quantity,String productId,
+			double itemPrice, double subTotal) {
+		super();
+		this.id = id;
+		this.shoppingCartId = shoppingCartId;
+		this.quantity = quantity;
+		this.productId = productId;
+		this.itemPrice = itemPrice;
+		this.subTotal = subTotal;
+	}
+	public String getShoppingCartId() {
 		return shoppingCartId;
 	}
-	public void setShoppingCartId(Long shoppingCartId) {
+	public void setShoppingCartId(String shoppingCartId) {
 		this.shoppingCartId = shoppingCartId;
 	}
 	public int getQuantity() {
@@ -35,8 +45,8 @@ public class CartItem extends EntityManagerImpl{
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public CartItem(Long id, Long shoppingCartId, int quantity, Long productId,
-			BigDecimal itemPrice, BigDecimal subTotal, Product product,
+	public CartItem(Long id, String shoppingCartId, int quantity, String productId,
+			double itemPrice, double subTotal, Product product,
 			ShoppingCart cart) {
 		super();
 		this.id = id;
@@ -68,37 +78,37 @@ public class CartItem extends EntityManagerImpl{
 	/**
 	 * @return the productId
 	 */
-	public Long getProductId() {
+	public String getProductId() {
 		return productId;
 	}
 	/**
 	 * @param productId the productId to set
 	 */
-	public void setProductId(Long productId) {
+	public void setProductId(String productId) {
 		this.productId = productId;
 	}
 	/**
 	 * @return the itemPrice
 	 */
-	public BigDecimal getItemPrice() {
+	public double getItemPrice() {
 		return itemPrice;
 	}
 	/**
 	 * @param itemPrice the itemPrice to set
 	 */
-	public void setItemPrice(BigDecimal itemPrice) {
+	public void setItemPrice(double itemPrice) {
 		this.itemPrice = itemPrice;
 	}
 	/**
 	 * @return the subTotal
 	 */
-	public BigDecimal getSubTotal() {
+	public double getSubTotal() {
 		return subTotal;
 	}
 	/**
 	 * @param subTotal the subTotal to set
 	 */
-	public void setSubTotal(BigDecimal subTotal) {
+	public void setSubTotal(double subTotal) {
 		this.subTotal = subTotal;
 	}
 	/**
@@ -114,11 +124,7 @@ public class CartItem extends EntityManagerImpl{
 		this.product = product;
 	}
 	
-	@Override
-	public Object getEntity(Class className, Object id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	@Override
 	public Object getEntityById(Object id) {
 		// TODO Auto-generated method stub
@@ -143,6 +149,11 @@ public class CartItem extends EntityManagerImpl{
 	public int count() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	@Override
+	public Object getEntity(Object id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
