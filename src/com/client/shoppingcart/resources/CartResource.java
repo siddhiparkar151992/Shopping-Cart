@@ -16,39 +16,50 @@ import com.client.shoppingcart.cart.service.CartServiceImpl;
 
 @Path("Cart")
 public class CartResource {
-	ShoppingCart cart= new ShoppingCart();
-	CartItemDaoImpl cartDao= new CartItemDaoImpl();
+	ShoppingCart cart = new ShoppingCart();
+	CartItemDaoImpl cartDao = new CartItemDaoImpl();
 	CartServiceImpl cartService = new CartServiceImpl();
-	
+
 	@POST
 	@Path("AddProduct")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void addProductToCart(CartItem cartItem){
+	public void addProductToCart(CartItem cartItem) {
 		cartService.addItem(cartItem);
 	}
-	
+
 	@POST
 	@Path("GetCart")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public ShoppingCart getCart(String id){
-		ShoppingCart cart=cartService.getSHoppingCart(id);
+	public ShoppingCart getCart(String id) {
+		ShoppingCart cart = cartService.getSHoppingCart(id);
 		return cart;
-		
+
 	}
 
-	
 	@POST
 	@Path("GetCartItems")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public ShoppingCart getCartItems(User user){
-	if(user!=null && user.getId()>0){
-		ShoppingCart cart=cartService.getShoppingCartByUser(user.getId());
-		return cart;
+	public ShoppingCart getCartItems(User user) {
+		if (user != null && user.getId() > 0) {
+			ShoppingCart cart = cartService.getShoppingCartByUser(user.getId());
+			return cart;
+		}
+		return null;
+
 	}
-	return null;
-		
-		
+
+	@POST
+	@Path("GetCartWithProducts")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public ShoppingCart getCartWithProducts(User user) {
+		if (user.getId()>0) {
+			ShoppingCart cart = cartService.getShoppingCartWithProductdata(user.getId());
+			return cart;
+		}
+		return null;
+
 	}
 }

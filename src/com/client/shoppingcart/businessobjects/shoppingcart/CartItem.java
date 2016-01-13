@@ -14,6 +14,26 @@ public class CartItem extends EntityManagerImpl{
 	private Double subTotal;
 	private Product product;
 	
+	/**
+	 * @param id
+	 * @param shoppingCartId
+	 * @param quantity
+	 * @param productId
+	 * @param itemPrice
+	 * @param subTotal
+	 * @param product
+	 */
+	public CartItem(Long id, String shoppingCartId, int quantity,
+			String productId, Double itemPrice, Double subTotal, Product product) {
+		super();
+		this.id = id;
+		this.shoppingCartId = shoppingCartId;
+		this.quantity = quantity;
+		this.productId = productId;
+		this.itemPrice = itemPrice;
+		this.subTotal = subTotal;
+		this.product = product;
+	}
 	public CartItem(Long id, String shoppingCartId, int quantity, String productId,
 			double itemPrice) {
 		super();

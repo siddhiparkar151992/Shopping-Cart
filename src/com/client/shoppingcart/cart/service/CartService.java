@@ -8,7 +8,7 @@ import com.client.shoppingcart.businessobjects.user.User;
 public interface CartService {
 	ShoppingCart getShoppingCartByUser(int userId);
 	ShoppingCart getSHoppingCart(String id);
-	
+	ShoppingCart getShoppingCartWithProductdata(int id);
 	void save(ShoppingCart cart);
 	void addItem(CartItem cartItem);
 	void populateShoppingCartItem(Product product);

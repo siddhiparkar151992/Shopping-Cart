@@ -23,6 +23,9 @@ cartModule.factory("cartService", function(CartModel,CartItemModel) {
 		},
 		getAllItems:function(){
 			return CartItemModel.getAll({"userId":345});
+		},
+		getAllItemsWithProds:function(){
+			return CartModel.getProductsCart({"id":345});
 		}
 
 	}

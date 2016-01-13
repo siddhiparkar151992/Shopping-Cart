@@ -14,7 +14,22 @@ import com.mongodb.client.MongoCursor;
 public class ProductDAOImpl implements ProductDAO{
 	static MongoCollection<Document> productCollection = DatabaseConnection.getConnection().getCollection("products");
 	
-	
+	List<Product> prodList= new ArrayList<Product>();
+	public ProductDAOImpl() {
+		MongoCursor<Document> cursor= productCollection.find().iterator();
+		while(cursor.hasNext()){
+			
+			Document nextElem = cursor.next();
+			
+			prodList.add(new Product(nextElem.getString("name"),nextElem.getString("description"),nextElem.getDouble("price"), new Category(nextElem.getString("name"),nextElem.getInteger("categoryId") ),nextElem.getString("id")));
+		}
+	}
+	public List<Product> getProdList() {
+		return prodList;
+	}
+	public void setProdList(List<Product> prodList) {
+		this.prodList = prodList;
+	}
 	@Override
 	public List<Product> getAllProducts() {
 		ArrayList<Product> products = new ArrayList<Product>();

@@ -64,5 +64,14 @@ public class CartServiceImpl implements CartService{
 		
 	}
 
+	@Override
+	public ShoppingCart getShoppingCartWithProductdata(int id) {
+		ShoppingCart cart = cartDaoImpl.getShoppingCartWithProductdata(id);
+		return cart;
+	}
+	
+	
+	
+
 
 }

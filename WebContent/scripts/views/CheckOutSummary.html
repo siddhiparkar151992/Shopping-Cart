@@ -8,6 +8,7 @@
 		<table class="table">
 			<thead>
 				<tr>
+				<th>Id</th>
 					<th>Quantity</th>
 					<th>Item</th>
 					<th class="text-right">Price</th>
@@ -16,10 +17,11 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="item in cartData">
-					<td class="text-center">{{item.count}}</td>
-					<td class="text-left">{{item.name}}</td>
-					<td class="text-right">{{item.price | currency}}</td>
-					<td class="text-right">{{ (item.price * item.count) |
+					<td class="text-left">{{item.product.id}}</td>
+					<td class="text-left">{{item.quantity}}</td>
+					<td class="text-left">{{item.product.name}}</td>
+					<td class="text-right">{{item.itemPrice | currency}}</td>
+					<td class="text-right">{{ (item.itemPrice * item.quantity) |
 						currency}}</td>
 					<td>
 						<button ng-click="remove(item.id)" class="btn btn-sm btn-warning">Remove</button>

@@ -15,4 +15,5 @@ public interface CartDAO extends EntityDao<ShoppingCart>{
 	void save(ShoppingCart cart, CartItem cartItem);
 	ShoppingCart getShoppingCartByUser(int id);
 	void addItem(CartItem item);
+	ShoppingCart getShoppingCartWithProductdata(int id);
 }

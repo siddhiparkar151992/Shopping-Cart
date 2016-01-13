@@ -21,4 +21,15 @@ app.service("CartModel",function($http,ConfigService,$q){
 			}
 		})
 	}
+	this.getProductsCart= function(user){
+		return $http.post(ConfigService.getUrl(baseUrl)+"/GetCartWithProducts",{"id":user.id}).then(function(res){
+			if(typeof res.data =='object'){
+				return res.data
+			}
+			else {
+				$q.reject(res.data);
+			}
+		})
+	}
+	
 });

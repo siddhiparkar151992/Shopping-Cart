@@ -1,13 +1,21 @@
-app.controller("cartSummaryController", function($scope, cart) {
-	$scope.cartData = cart.getProducts();
-	$scope.total = function() {
+app.controller("cartSummaryController", function($scope, cartService) {
+	var init= function(){
+		var cartDefer = cartService.getAllItemsWithProds().then(function(res){
+			$scope.cartData = res.cartItems;
+			$scope.total =total();
+		});
+		
+	}
+	
+	var total = function() {
 		var total = 0;
 		for (var i = 0; i < $scope.cartData.length; i++) {
-			total += ($scope.cartData[i].price * $scope.cartData[i].count);
+			total += ($scope.cartData[i].price * $scope.cartData[i].quantity);
 		}
 		return total;
 	}
 	$scope.remove = function(id) {
-		cart.removeProduct(id);
+		cartService.removeProduct(id);
 	}
+	init();
 })
